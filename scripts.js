@@ -28,12 +28,30 @@ function getRoundResults(userOption){
     }
 }
 
-const playerScoreSpanElemet = document.getElementById("player-score");
-const computerScoreSpanElemet = document.getElementById("computer-score");
-const roundResultMsg = document.getElementById("result-msg");
+const playerScoreSpanElement = document.getElementById("player-score");
+const computerScoreSpanElement = document.getElementById("computer-score");
+const roundResultsMsg = document.getElementById("result-msg");
+const winnerMsgElement = document.getElementById("winner-msg");
+const optionsContainer = document.querySelector(".options-container")
 
 function showResults(userOption) {
-    
+    roundResultsMsg.innerHTML = getRoundResults(userOption);
+    playerScoreSpanElement.innerHTML = playerScore;
+    computerScoreSpanElement.innerHTML = computerScore;
 }
 
-showResults("Rock");
+const rockBtn = document.getElementById("rock-btn");
+const paperBtn = document.getElementById("paper-btn");
+const scissorsBtn = document.getElementById("scissors-btn");
+
+rockBtn.addEventListener('click', function () {
+    showResults("Rock");
+});
+
+paperBtn.addEventListener('click', function(){
+    showResults("Paper");
+});
+
+scissorsBtn.addEventListener('click', function(){
+    showResults("Scissors");
+})
